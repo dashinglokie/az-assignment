@@ -1,1 +1,3 @@
 rootProject.name = 'az-assignment'
+include 'spring'
+include 'ui'
