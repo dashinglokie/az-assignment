@@ -8,6 +8,7 @@ public class AzAssignmentApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AzAssignmentApplication.class, args);
+		System.out.println("Project Booted !!!");
 	}
 
 }
