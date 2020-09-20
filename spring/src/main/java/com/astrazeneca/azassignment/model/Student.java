@@ -1,7 +1,6 @@
 package com.astrazeneca.azassignment.model;
 
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,23 +9,26 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
 public class Student {
 
     @Id
     @GeneratedValue
     private int id;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     @NonNull
     @Setter
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "address", nullable = false)
     @NonNull
     @Setter
     private String address;
 
-    @Column(nullable = false)
+    @Column(name = "dob", nullable = false)
     @NonNull
     @Setter
     private Date dob;
