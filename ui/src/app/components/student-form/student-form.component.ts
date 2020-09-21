@@ -19,7 +19,13 @@ export class StudentFormComponent implements OnInit {
   });
   addToStudents: Subject<any>;
   selectedStudentData: Subscription;
+  isAdd: boolean;
+  isUpdate: boolean;
+  isDelete: boolean;
   constructor(private studentService: StudentService, private fb: FormBuilder) {
+    this.isAdd = true;
+    this.isUpdate = false;
+    this.isDelete = false;
     this.addToStudents = this.studentService.refreshStudentsData;
   }
 
@@ -36,11 +42,22 @@ export class StudentFormComponent implements OnInit {
       console.log(response);
       this.addToStudents.next();
     });
+    this.resetForm();
   }
 
   fillData(student: any) {
     console.log("SelectedStudent", student);
     this.studentForm.setValue(student);
+    this.isUpdate = true;
+    this.isDelete = true;
+    this.isAdd = false;
+  }
+
+  resetForm() {
+    this.isAdd = true;
+    this.isUpdate = false;
+    this.isDelete = false;
+    this.studentForm.reset();
   }
 
   updateStudent() {
@@ -48,13 +65,19 @@ export class StudentFormComponent implements OnInit {
       console.log(response);
       this.addToStudents.next();
     });
+    this.resetForm();
   }
 
   deleteStudent(studentId: number) {
     this.studentService.deleteStudent$(studentId).subscribe(response => {
       console.log(response);
       this.addToStudents.next();
-    })
+    });
+    this.resetForm();
+  }
+
+  ngOnDestroy() {
+    this.selectedStudentData.unsubscribe();
   }
 
 }

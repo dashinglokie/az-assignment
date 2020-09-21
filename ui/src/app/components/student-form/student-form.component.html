@@ -13,10 +13,10 @@
       <input type="text" formControlName="dob" required>
     </label>
     <div class="btn-grp">
-      <button type="submit" [disabled]="!studentForm.valid" (click)="addStudent()">Add</button>
-      <button [disabled]="!studentForm.valid" (click)="updateStudent()">Update</button>
-      <button [disabled]="!studentForm.valid" (click)="deleteStudent(studentForm.value.id)">Delete</button>
-      <button type="reset" [disabled]="!studentForm.valid">Reset</button>
+      <button type="submit" [disabled]="!studentForm.valid || !isAdd" (click)="addStudent()">Add</button>
+      <button [disabled]="!studentForm.valid || !isUpdate" (click)="updateStudent()">Update</button>
+      <button [disabled]="!studentForm.valid || !isDelete" (click)="deleteStudent(studentForm.value.id)">Delete</button>
+      <button type="reset" [disabled]="!studentForm.valid" (click)="resetForm()">Reset</button>
     </div>
   </form>
 </div>
