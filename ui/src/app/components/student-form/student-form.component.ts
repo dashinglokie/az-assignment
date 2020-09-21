@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
 import { StudentService } from 'src/app/service/student-service';
@@ -35,8 +35,15 @@ export class StudentFormComponent implements OnInit {
     });
   }
 
+  date(e) {
+    var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
+    this.studentForm.get('dob').setValue(convertDate, {
+      onlyself: true
+    })
+  }
+
+
   addStudent() {
-    // TODO: Use EventEmitter with form value
     console.log(this.studentForm.value);
     this.studentService.addStudent$(this.studentForm.value).subscribe(response => {
       console.log(response);

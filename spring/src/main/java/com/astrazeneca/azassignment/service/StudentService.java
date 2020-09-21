@@ -26,15 +26,12 @@ public class StudentService {
         return studentRepo.findById(id);
     }
 
-    public String deleteStudentById(int id) {
-        String result;
+    public void deleteStudentById(int id) {
         try {
             studentRepo.deleteById(id);
-            result = "Student deleted";
-        } catch (Exception e) {
-            result = "Given id is not found";
+        } catch (Exception exception) {
+            throw exception;
         }
-        return result;
     }
 
 }

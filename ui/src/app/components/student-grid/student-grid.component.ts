@@ -15,7 +15,8 @@ export class StudentGridComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<any>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   resultData = [];
-  displayColumns: string[] = ['id', 'name', 'address', 'dob'];
+  displayColumns: string[] = ['name', 'address', 'dob'];
+  newdisplayColumns: string[] = ['Name', 'Address', 'DOB'];
 
   constructor(private studentService: StudentService) {
     this.studentSelected = this.studentService.selectedStudentData;
@@ -66,7 +67,7 @@ export class StudentGridComponent implements OnInit, AfterViewInit {
     }
   }
 
-  selectItemBasedOnIndex(row, event) {
+  selectRow(row, event) {
     console.log(row);
     console.log(event);
     this.studentSelected.next(row);

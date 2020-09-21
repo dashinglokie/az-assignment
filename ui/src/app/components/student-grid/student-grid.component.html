@@ -1,14 +1,14 @@
-<button type="submit" class="refresh" (click)="getStudentList()">Refresh</button>
+<button type="submit" class="btn btn-secondary refresh" (click)="getStudentList()">Refresh</button>
 <div id="table-container">
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
         <ng-container *ngFor="let col of displayColumns" matColumnDef="{{col}}">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header id="{{col}}"> {{col}}
+            <th mat-header-cell *matHeaderCellDef mat-sort-header id="{{col}}"> {{col | uppercase}}
             </th>
             <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayColumns;"
-            (click)="selectItemBasedOnIndex(row, { event: $event });"></mat-row>
+            (click)="selectRow(row, { event: $event });"></mat-row>
     </table>
 </div>
 <div fxLayout="row" fxLayoutAlign="end start">

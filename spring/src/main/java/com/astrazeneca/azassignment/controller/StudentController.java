@@ -48,12 +48,10 @@ public class StudentController {
      * Deletes a student by id.
      *
      * @param id ID of student to be deleted
-     * @throws IOException if there is an error deleting the image file
-     * @return the result of delete
      */
     @DeleteMapping("/deleteStudentById/{id}")
-    public String deleteStudentById(@PathVariable("id") int id) throws IOException {
-        return ss.deleteStudentById(id);
+    public void deleteStudentById(@PathVariable("id") int id) throws IllegalArgumentException{
+        ss.deleteStudentById(id);
     }
 
 }

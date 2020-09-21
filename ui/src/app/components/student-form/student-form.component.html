@@ -1,22 +1,32 @@
-<div class="student-form">
-  <form class="student-form" [formGroup]="studentForm">
-    <label>
-      <span class="input-field">Name:</span>
-      <input type="text" formControlName="name" required>
-    </label>
-    <label>
-      <span class="input-field">Address:</span>
-      <input type="text" formControlName="address" required>
-    </label>
-    <label>
-      <span class="input-field">Date of Birth:</span>
-      <input type="text" formControlName="dob" required>
-    </label>
-    <div class="btn-grp">
-      <button type="submit" [disabled]="!studentForm.valid || !isAdd" (click)="addStudent()">Add</button>
-      <button [disabled]="!studentForm.valid || !isUpdate" (click)="updateStudent()">Update</button>
-      <button [disabled]="!studentForm.valid || !isDelete" (click)="deleteStudent(studentForm.value.id)">Delete</button>
-      <button type="reset" [disabled]="!studentForm.valid" (click)="resetForm()">Reset</button>
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <div class="student-form">
+      <form class="student-form" [formGroup]="studentForm">
+        <label>
+          <span class="input-field float-left">Name:</span>
+          <input type="text" formControlName="name" required>
+        </label>
+        <label>
+          <span class="input-field float-left">Address:</span>
+          <input type="text" formControlName="address" required>
+        </label>
+        <label>
+          <span class="input-field float-left">Date of Birth:</span>
+          <input [matDatepicker]="picker" placeholder="Choose a date" formControlName="dob" (dateChange)="date($event)" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </label>
+        <div class="btn-grp">
+          <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid || !isAdd"
+            (click)="addStudent()">Add</button>
+          <button type="button" class="btn btn-warning" [disabled]="!studentForm.valid || !isUpdate"
+            (click)="updateStudent()">Update</button>
+          <button type="button" class="btn btn-danger" [disabled]="!studentForm.valid || !isDelete"
+            (click)="deleteStudent(studentForm.value.id)">Delete</button>
+          <button type="reset" class="btn btn-primary" [disabled]="!studentForm.valid"
+            (click)="resetForm()">Reset</button>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

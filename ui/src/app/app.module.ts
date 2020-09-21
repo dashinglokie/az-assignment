@@ -10,6 +10,12 @@ import { AppComponent } from './app.component';
 import { StudentFormComponent } from './components/student-form/student-form.component';
 import { StudentGridComponent } from './components/student-grid/student-grid.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -24,11 +30,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     MatTableModule,
     MatPaginatorModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })
