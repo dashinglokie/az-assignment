@@ -11,3 +11,9 @@ After successful build visit <b><i>`http://localhost:8080`</i></b>
 2. Restructured project for 'spring' and 'ui' modules.
 3. Added Angular boiler-plate code and pointed in to the same port.
 4. Project modules created in spring and connected with H2 db
+5. Added REST endpoint and services for the basic CRUD operations.
+6. Replaced the UI boiler-plate code with Reactive-Form and Mat-Table.
+7. Added basic form validation using Validators.
+8. Enable/Disable of buttons based on condition.
+9. UI and functional tweaks, converted date value.
+10. Loaded the H2 DB with intial-data.
