@@ -50,4 +50,4 @@ After successful build visit <b><i>`http://localhost:8080`</i></b>
 - In Java, Service can be abstracted to be just an interface and that can be implemented using a Manager class.
 - Cors and other request level security and Spring security can be implemented.
 
-                       ***[`Happy Hacking`]***
+                                ***[`Happy Hacking`]***
