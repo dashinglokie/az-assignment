@@ -19,9 +19,9 @@
         <div class="btn-grp">
           <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid || !isAdd"
             (click)="addStudent()">Add</button>
-          <button type="button" class="btn btn-warning" [disabled]="!studentForm.valid || !isUpdate"
+          <button type="button" class="btn btn-warning" [disabled]="!studentForm.valid || !studentForm.dirty || !isUpdate"
             (click)="updateStudent()">Update</button>
-          <button type="button" class="btn btn-danger" [disabled]="!studentForm.valid || !isDelete"
+          <button type="button" class="btn btn-danger" [disabled]="!studentForm.valid || studentForm.dirty || !isDelete"
             (click)="deleteStudent(studentForm.value.id)">Delete</button>
           <button type="reset" class="btn btn-primary" [disabled]="!studentForm.valid"
             (click)="resetForm()">Reset</button>

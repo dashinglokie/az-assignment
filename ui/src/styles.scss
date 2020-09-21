@@ -3,7 +3,10 @@
 @import '~@angular/material/theming';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 1.25rem !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
@@ -16,5 +19,28 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .button-wrapper{margin-top:10px;}
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
+
+
+table {
+  thead {
+    mat-header-row {
+      background-color: #e7ece4 !important;
+      border-bottom-width: medium !important;
+    }
+  }
+  tbody {
+    background-color: aliceblue !important;
+    mat-row {
+      border-bottom-width: thin !important;
+    }
+  }
+  th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border-bottom-width: 0rem;
+  }
+  mat-paginator {
+    background-color: #e0eff1 !important;
+  }
+}
+

@@ -42,7 +42,6 @@ export class ApiService {
         return response;
       }),
       catchError(error => {
-        //TODO log the error and show a message to the user
         return throwError(error);
       }),
       finalize(()=>{})

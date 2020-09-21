@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
 import { StudentService } from 'src/app/service/student-service';
@@ -36,7 +36,7 @@ export class StudentFormComponent implements OnInit {
   }
 
   date(e) {
-    var convertDate = new Date(e.target.value).toISOString().substring(0, 10);
+    var convertDate = this.studentService.convertDateFormat(e.target.value);
     this.studentForm.get('dob').setValue(convertDate, {
       onlyself: true
     })

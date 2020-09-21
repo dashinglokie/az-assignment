@@ -33,4 +33,10 @@ export class StudentService {
     const url = this.deleteStudent + '/' +studentId;
     return this.apiService.delete$<any>(url, {});
   }
+
+  convertDateFormat(date) {
+    const d = new Date(date);
+    return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().substring(0, 10);
+  }
+
 }

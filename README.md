@@ -17,3 +17,5 @@ After successful build visit <b><i>`http://localhost:8080`</i></b>
 8. Enable/Disable of buttons based on condition.
 9. UI and functional tweaks, converted date value.
 10. Loaded the H2 DB with intial-data.
+11. Fixed an issue with ISO-date-convertion.
+12. Added minimal UI styles and button validations.

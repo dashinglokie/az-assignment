@@ -36,21 +36,23 @@ export class StudentGridComponent implements OnInit, AfterViewInit {
   }
 
   getStudentList() {
-    // this.studentService.getStudents$().subscribe(response => {
-    //   console.log("Response", response);
-    //   this.resultData = response;
-    //   this.dataSource.data = this.resultData;
-    // });
-    this.resultData = [
-      { id: 1, name: "lokie", address: "chennai", dob: "1993-07-13T00:00:00.000+00:00" },
-      { id: 2, name: "thor", address: "asgard", dob: "1985-12-25T00:00:00.000+00:00" },
-      { id: 3, name: "jack", address: "new york", dob: "1963-01-15T00:00:00.000+00:00" },
-      { id: 4, name: "rose", address: "paris", dob: "1965-11-05T00:00:00.000+00:00" },
-      { id: 5, name: "thor", address: "asgard", dob: "1985-12-25T00:00:00.000+00:00" },
-      { id: 6, name: "jack", address: "new york", dob: "1963-01-15T00:00:00.000+00:00" },
-      { id: 7, name: "rose", address: "paris", dob: "1965-11-05T00:00:00.000+00:00" }
-    ];
-    this.dataSource.data = this.resultData;
+    this.studentService.getStudents$().subscribe(response => {
+      console.log("Response", response);
+      this.resultData = response;
+      this.resultData.forEach(item => {item.dob = this.studentService.convertDateFormat(item.dob)});
+      this.dataSource.data = this.resultData;
+    });
+    // this.resultData = [
+    //   { id: 1, name: "lokie", address: "chennai", dob: "1993-07-13T00:00:00.000+00:00" },
+    //   { id: 2, name: "thor", address: "asgard", dob: "1985-12-25T00:00:00.000+00:00" },
+    //   { id: 3, name: "jack", address: "new york", dob: "1963-01-15T00:00:00.000+00:00" },
+    //   { id: 4, name: "rose", address: "paris", dob: "1965-11-05T00:00:00.000+00:00" },
+    //   { id: 5, name: "thor", address: "asgard", dob: "1985-12-25T00:00:00.000+00:00" },
+    //   { id: 6, name: "jack", address: "new york", dob: "1963-01-15T00:00:00.000+00:00" },
+    //   { id: 7, name: "rose", address: "paris", dob: "1965-11-05T00:00:00.000+00:00" }
+    // ];
+    // this.resultData.forEach(item => {item.dob = this.studentService.convertDateFormat(item.dob)});
+    // this.dataSource.data = this.resultData;
   }
 
   sortData($event) {
