@@ -35,14 +35,13 @@ public class StudentController {
     }
 
     /**
-     * Retrieve the student record by id.
+     * Update the student record by id.
      *
-     * @param id ID of student to be fetched
      * @return the student
      */
-    @GetMapping("/getStudentById/{id}")
-    public Student getStudentById(@PathVariable("id") int id) {
-        return ss.getStudentById(id).get();
+    @PutMapping("/updateStudent")
+    public Student updateStudent(@RequestBody Student s) {
+        return ss.addStudent(s);
     }
 
     /**
