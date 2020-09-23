@@ -5,6 +5,13 @@
 Download / Clone the repo, and just run <b>`gradlew build bootRun`</b> to build and boot the application.
 After successful build visit <b><i>`http://localhost:8080`</i></b> 
 
+##### [Update]
+If there is any problem in gradle build like this,
+![alt text](https://github.com/dashinglokie/az-assignment/blob/master/res/toolsJarErr.png?raw=true)
+
+then, update the `gradle.properties` file with the JDK path,
+![alt text](https://github.com/dashinglokie/az-assignment/blob/master/res/jdkPathGradle.png?raw=true)
+
 #### project-timeline :
 1. Created a spring-boot project using https://start.spring.io/ using the following dependencies;
 ![alt text](https://github.com/dashinglokie/az-assignment/blob/master/res/spring-startup.png?raw=true)
